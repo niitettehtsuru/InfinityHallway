@@ -6,7 +6,7 @@
  * @email:     calebniitettehaddy@gmail.com 
  * @twitter:   @cnttaddy
  * @github :   https://github.com/niitettehtsuru/InfinityHallway
- * @codepen:   https://codepen.io/niitettehtsuru/pen/yLeJwrG
+ * @codepen:   https://codepen.io/niitettehtsuru/pen/Yzwewzq
  * @license:   GNU General Public License v3.0 
  * */
 let 
@@ -17,8 +17,7 @@ function createPoints(width,height)
 {
     let points = []; 
     let positions = ['left','right'];
-    let numOfPoints = 2; 
-    for(let i = 0; i < numOfPoints; i++)
+    for(let i = 0; i < positions.length; i++)
     {  
         points.push(new Point(width,height,interval,positions[i])); 
     }
@@ -45,12 +44,22 @@ function onWindowResize()//called every time the window gets resized.
         point.resize(width,height);  
     });   
 }
+function setNewPoints()
+{
+    let browserWindowSize = getBrowserWindowSize();  
+    createCanvas(browserWindowSize.width,browserWindowSize.height);  
+    points = createPoints(width,height);
+}
 function setup() 
 {
     let browserWindowSize = getBrowserWindowSize();  
     createCanvas(browserWindowSize.width,browserWindowSize.height);  
     points = createPoints(width,height);
     window.addEventListener('resize',onWindowResize);
+    document.addEventListener('click',(event)=>//when user clicks on the canvas,
+    {    
+        setNewPoints();
+    });
 } 
 function draw() 
 {  

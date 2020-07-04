@@ -1,6 +1,6 @@
 # Infinity Hallway
 An animation of lines drawn lines from the edges of the canvas to the center<br>  
-Please view a live demo at : https://codepen.io/niitettehtsuru/pen/oNbWQXW<br>
+Please view a live demo at : https://codepen.io/niitettehtsuru/pen/Yzwewzq<br>
 
 <img width="1345px" height="450px"  src ="img/img.png">
  

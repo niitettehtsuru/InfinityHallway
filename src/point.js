@@ -6,7 +6,7 @@
  * @email:     calebniitettehaddy@gmail.com 
  * @twitter:   @cnttaddy
  * @github :   https://github.com/niitettehtsuru/InfinityHallway
- * @codepen:   https://codepen.io/niitettehtsuru/pen/yLeJwrG
+ * @codepen:   https://codepen.io/niitettehtsuru/pen/Yzwewzq
  * @license:   GNU General Public License v3.0 
  * */
 class Point
@@ -37,6 +37,7 @@ class Point
             this.halfWidth = this.screenWidth/2;
             this.xCoord *= dx; 
             this.yCoord *= dy;   
+            this.speed.y*=dy; 
         }
     }
     getBorderPoints()//get points on the edges of the canvas
@@ -83,8 +84,8 @@ class Point
     }
     setInitialSpeed()//Set the speed at start. 
     {   
-        let x = 0;//no horizontal movement  
-        let y = -this.unitDistance; //move up
+        let x = 0;//no horizontal movement   
+        let y = Math.random() > 0.5? -this.unitDistance:this.unitDistance; //move up
         return {x:x,y:y};  
     } 
     pointHitsTopWall()
@@ -119,7 +120,8 @@ class Point
     update( )
     {     
         this.yCoord += this.speed.y;//keep the point moving in its current direction  
-        this.checkCollisionWithWall();   
+        this.checkCollisionWithWall();  
+        //this darkens and then lightens up the screen
         if(this.toggleInterval)
         {
             this.interval-=0.1;//keep reducing the interval...
